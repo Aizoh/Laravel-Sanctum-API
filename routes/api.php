@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +15,21 @@ use App\Http\Controllers\ProductController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+/**UNprotected routes */
+Route::post('/register', [AuthController::class, 'register']);
 Route::get('/products/search/{name}', [ProductController::class, 'search']);
-Route::resource('products', ProductController::class);
-// Route::get('/products', [ProductController::class, 'index']);
-// Route::post('/products', [ProductController::class, 'store']);
+Route::get('/products/{id}', [ProductController::class, 'show']);
+Route::get('/products', [ProductController::class, 'index']);
+Route::post('/login', [AuthController::class, 'login']);
 
+
+//PROTECTED ROUTES
+Route::group(['middleware'=>['auth:sanctum']], function(){
+    Route::post('/products', [ProductController::class, 'store']);
+    Route::put('/products', [ProductController::class, 'update']);
+    Route::post('/logout', [AuthController::class, 'logout']);
+   
+});
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

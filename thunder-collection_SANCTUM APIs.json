@@ -1,0 +1,303 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "SANCTUM APIs",
+    "dateExported": "2023-12-21T12:39:23.039Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "f0f7a347-8f3e-46a8-b9f6-aeba92f72daf",
+            "colId": "fae867a6-c238-40c8-bd96-ec522ec75517",
+            "containerId": "",
+            "name": "GET PRODUCTS",
+            "url": "http://127.0.0.1:89/api/products",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-12-21T07:18:09.413Z",
+            "modified": "2023-12-21T08:29:41.505Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "543f86ed-3a6f-4e91-9080-07d163c9385b",
+            "colId": "fae867a6-c238-40c8-bd96-ec522ec75517",
+            "containerId": "",
+            "name": "SEARCH  PRODUCTS by name",
+            "url": "http://127.0.0.1:89/api/products/search/three",
+            "method": "GET",
+            "sortNum": 15000,
+            "created": "2023-12-21T08:29:06.570Z",
+            "modified": "2023-12-21T08:29:06.570Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "760b0c6f-7f66-421f-946d-4fb7ed1c53cb",
+            "colId": "fae867a6-c238-40c8-bd96-ec522ec75517",
+            "containerId": "",
+            "name": "POST PRODUCTS",
+            "url": "http://127.0.0.1:89/api/products",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-12-21T07:24:13.376Z",
+            "modified": "2023-12-21T12:09:36.679Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "product  five"
+                    },
+                    {
+                        "name": "slug",
+                        "value": "prod-5"
+                    },
+                    {
+                        "name": "description",
+                        "value": "Fith Product"
+                    },
+                    {
+                        "name": "price",
+                        "value": "300.00"
+                    }
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "1|zQ2bsn7yBOAzX8X7f4wV3Dwf7Txo9JG7ruu0fupPb6149a34"
+            },
+            "tests": []
+        },
+        {
+            "_id": "bcb12382-b51d-48d8-b491-ef515bb01ac0",
+            "colId": "fae867a6-c238-40c8-bd96-ec522ec75517",
+            "containerId": "",
+            "name": "REGISTER",
+            "url": "http://127.0.0.1:89/api/register",
+            "method": "POST",
+            "sortNum": 25000,
+            "created": "2023-12-21T12:04:06.160Z",
+            "modified": "2023-12-21T12:08:23.079Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Gitau"
+                    },
+                    {
+                        "name": "email",
+                        "value": "skengo@gmail.com"
+                    },
+                    {
+                        "name": "password",
+                        "value": "1234"
+                    },
+                    {
+                        "name": "password_confirmation",
+                        "value": "1234"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "48a91fa6-5f37-4746-95a4-87712290e751",
+            "colId": "fae867a6-c238-40c8-bd96-ec522ec75517",
+            "containerId": "",
+            "name": "LOGOUT",
+            "url": "http://127.0.0.1:89/api/logout",
+            "method": "POST",
+            "sortNum": 27500,
+            "created": "2023-12-21T12:13:38.193Z",
+            "modified": "2023-12-21T12:16:08.604Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Gitau",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "email",
+                        "value": "skengo@gmail.com",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "password",
+                        "value": "1234",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "password_confirmation",
+                        "value": "1234"
+                    }
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "1|zQ2bsn7yBOAzX8X7f4wV3Dwf7Txo9JG7ruu0fupPb6149a34"
+            },
+            "tests": []
+        },
+        {
+            "_id": "14850c24-3abe-406a-a6b5-8c8475e87422",
+            "colId": "fae867a6-c238-40c8-bd96-ec522ec75517",
+            "containerId": "",
+            "name": "LOGIN",
+            "url": "http://127.0.0.1:89/api/login",
+            "method": "POST",
+            "sortNum": 28750,
+            "created": "2023-12-21T12:29:23.236Z",
+            "modified": "2023-12-21T12:30:40.016Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Gitau",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "email",
+                        "value": "skengo@gmail.com"
+                    },
+                    {
+                        "name": "password",
+                        "value": "1234"
+                    },
+                    {
+                        "name": "password_confirmation",
+                        "value": "1234",
+                        "isDisabled": true
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "c7e7aa1a-60a5-4235-b9cf-aa0f5955700b",
+            "colId": "fae867a6-c238-40c8-bd96-ec522ec75517",
+            "containerId": "",
+            "name": "UPDATE PRODUCTS",
+            "url": "http://127.0.0.1:89/api/products/2",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2023-12-21T07:59:27.307Z",
+            "modified": "2023-12-21T08:09:08.551Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "product two",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "slug",
+                        "value": "prod-2",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "description",
+                        "value": "Second Product",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "price",
+                        "value": "50.00"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "a71a319b-0f9f-4491-8863-e0655195d76a",
+            "colId": "fae867a6-c238-40c8-bd96-ec522ec75517",
+            "containerId": "",
+            "name": "DELETE PRODUCTS ",
+            "url": "http://127.0.0.1:89/api/products/1",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2023-12-21T08:09:55.690Z",
+            "modified": "2023-12-21T08:12:36.808Z",
+            "headers": [
+                {
+                    "name": "Accept",
+                    "value": "application/json"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "formencoded",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "product two",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "slug",
+                        "value": "prod-2",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "description",
+                        "value": "Second Product",
+                        "isDisabled": true
+                    },
+                    {
+                        "name": "price",
+                        "value": "50.00",
+                        "isDisabled": true
+                    }
+                ]
+            },
+            "tests": []
+        }
+    ]
+}
