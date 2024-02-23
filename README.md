@@ -38,8 +38,19 @@ class User extends Authenticatable
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+define protected routes
+```php
+//PROTECTED ROUTES
+Route::group(['middleware'=>['auth:sanctum']], function(){
+    Route::post('/products', [ProductController::class, 'store']);
+    Route::put('/products', [ProductController::class, 'update']);
+   
+});
+```
+add Auth Controller
+```php
 
+```
 ## Code of Conduct
 
 In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
@@ -51,3 +62,17 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## make an invoice seeder and model
+```php
+php artisan make:model Invoice -mrc
+php artisan make:seeder InvoiceSeeder
+php artisan make:factory InvoiceFactory
+```
+call edit the factory add fields, in the seeder call the factory.
+then seed .
+```php
+php artisan db:seed --class=InvoiceSeeder
+
+composer require barryvdh/laravel-dompdf
+```
