@@ -28,6 +28,7 @@ class InvoiceController extends Controller
     public function create()
     {
         //
+        return view('invoice.create');
     }
 
     /**
@@ -36,6 +37,10 @@ class InvoiceController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request);
+        $invoice = Invoice::create($request->all());
+        return redirect()->back()->with('success', 'Form submitted successfully!');
+
     }
 
     /**

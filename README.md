@@ -126,3 +126,23 @@ class Invoice extends Model
  //Write your route normally
  Route::get('invoice/{invoice}/download', [InvoiceController::class, 'download'])->name('invoice.preview');
 ```
+Automatically generating slugs for use:
+
+```php
+$ composer require cviebrock/eloquent-sluggable
+
+//in the model 
+use Cviebrock\EloquentSluggable\Sluggable;
+//inside
+use Sluggable;
+
+public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'item'
+            ]
+        ];
+    }
+```
+this will automatically generate a unique slug
