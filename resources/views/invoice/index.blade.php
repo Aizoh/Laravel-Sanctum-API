@@ -27,9 +27,9 @@
                 <td>{{$invoice->unit_price}}</td>
                 <td>{{$invoice->item_price}}</td>
                 <td>
-                    <button type="button" class="btn btn-primary d-inline">PDf</button>
-                    <button type="button" class="btn btn-secondary d-inline">Secondary</button>
-                    <button type="button" class="btn btn-success d-inline">Success</button>
+                    <a type="button" class="btn btn-primary d-inline" href="{{route('invoice.preview', $invoice)}}" > Show PDf</a>
+                    <a type="button" class="btn btn-secondary d-inline">Send</a>
+                    <a type="button" class="btn btn-success d-inline">Success</a>
                 </td>
               </tr>
             @endforeach

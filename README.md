@@ -76,3 +76,32 @@ php artisan db:seed --class=InvoiceSeeder
 
 composer require barryvdh/laravel-dompdf
 ```
+Using slugs:
+```php
+//introduce slug in the db and the route 
+Route::get('invoice/{invoice:slug}/download', [InvoiceController::class, 'download'])->name('invoice.preview');
+//in the view
+<a type="button" class="btn btn-primary d-inline" href="{{route('invoice.preview', $invoice)}}" > Show PDf</a>
+//controller
+//use model binding
+ public function download(Invoice $invoice)
+    {
+        if (!$invoice) {
+            return response()->json(['error' => 'Invoice not found'], 404);
+        }
+
+        try {
+            $data = [
+                'invoice' => $invoice,
+            ];
+
+            $pdf = Pdf::loadView('invoice', $data);
+
+            //return $pdf->download(); to download just for viewing
+            return $pdf->stream();
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error generating PDF' . $e], 500);
+        }
+    }
+
+```

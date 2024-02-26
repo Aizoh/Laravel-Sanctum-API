@@ -13,10 +13,10 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        
+
         $invoices = Invoice::all();
         $data = [
-            'invoices'=> $invoices,
+            'invoices' => $invoices,
         ];
         // return response()->json($data, 200);
         return view('invoice.index', $data);
@@ -44,7 +44,23 @@ class InvoiceController extends Controller
     public function show(Invoice $invoice)
     {
         //
-        return response()->json($invoice, 200);
+        if (!$invoice) {
+            return response()->json(['error' => 'Invoice not found'], 404);
+        }
+
+        try {
+            $data = [
+                'invoice' => $invoice,
+            ];
+
+            $pdf = Pdf::loadView('invoice', $data);
+
+            //return $pdf->download(); to download just for viewing
+            return $pdf->stream();
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error generating PDF' . $e], 500);
+        }
+        //return response()->json($invoice, 200);
     }
 
     /**
@@ -71,23 +87,23 @@ class InvoiceController extends Controller
         //
     }
 
-    public function download(Invoice $invoice) {
+    public function download(Invoice $invoice)
+    {
         if (!$invoice) {
             return response()->json(['error' => 'Invoice not found'], 404);
         }
-    
+
         try {
             $data = [
                 'invoice' => $invoice,
             ];
-    
-            $pdf = Pdf::loadView('invoice', $data);
-    
-            //return $pdf->download(); to download just for viewing
-            return $pdf->stream(); 
 
+            $pdf = Pdf::loadView('invoice', $data);
+
+            //return $pdf->download(); to download just for viewing
+            return $pdf->stream();
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Error generating PDF'. $e], 500);
+            return response()->json(['error' => 'Error generating PDF' . $e], 500);
         }
-}
+    }
 }
