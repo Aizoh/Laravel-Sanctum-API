@@ -19,4 +19,4 @@ Route::get('/', function () {
 });
 Route::resource('invoices', InvoiceController::class);
 //for specific route to use slugs
-Route::get('invoice/{invoice:slug}/download', [InvoiceController::class, 'download'])->name('invoice.preview');
+Route::get('invoice/{invoice}/download', [InvoiceController::class, 'download'])->name('invoice.preview');

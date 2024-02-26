@@ -105,3 +105,24 @@ Route::get('invoice/{invoice:slug}/download', [InvoiceController::class, 'downlo
     }
 
 ```
+alternatively for the whole model 
+```php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Invoice extends Model
+{
+    use HasFactory;
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+}
+ //Write your route normally
+ Route::get('invoice/{invoice}/download', [InvoiceController::class, 'download'])->name('invoice.preview');
+```
