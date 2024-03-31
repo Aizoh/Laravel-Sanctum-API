@@ -28,7 +28,7 @@
                 <td>{{$invoice->item_price}}</td>
                 <td>
                     <a type="button" class="btn btn-primary d-inline" href="{{route('invoice.preview', $invoice)}}" > Show PDf</a>
-                    <a type="button" class="btn btn-secondary d-inline">Send</a>
+                    <a type="button" class="btn btn-secondary d-inline" href="{{route('invoice.send', $invoice)}}"">Send</a>
                     <a type="button" class="btn btn-success d-inline">Success</a>
                 </td>
               </tr>

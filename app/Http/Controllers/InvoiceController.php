@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\InvoiceMail;
 use App\Models\Invoice;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Mail;
+
 
 class InvoiceController extends Controller
 {
@@ -110,5 +113,25 @@ class InvoiceController extends Controller
         } catch (\Exception $e) {
             return response()->json(['error' => 'Error generating PDF' . $e], 500);
         }
+    }
+
+    public function send(Invoice $invoice){
+
+        $url = route('invoices.show', $invoice);
+        $data = [
+            'invoice' => $invoice,
+        ];
+    
+        $pdf = Pdf::loadView('invoice', $data);
+        //$pdf = $pdf->stream();
+    
+        // Check if $pdf is not null before sending the email
+        if ($pdf) {
+            Mail::to($invoice->client_email)->send(new InvoiceMail($invoice, $pdf, $url));
+        } else {
+            // Handle the case where $pdf is null (e.g., log an error)
+            abort(404);
+        }
+
     }
 }
